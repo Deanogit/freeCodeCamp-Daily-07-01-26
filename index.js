@@ -13,3 +13,17 @@
 // For example, given "- Item A\n- Item B", return "<ul><li>Item A</li><li>Item B</li></ul>".
 
 // Note: The console may not display HTML tags in strings when logging messages. Check the browser console to see logs with tags included.
+
+function parseUnorderedList(markdown) {
+  console.log(markdown);
+  // return markdown;
+  // split markdown by "\n" into array
+  const split = markdown.split('\n');
+  console.log(split);
+
+  // clean item
+  const clean = split.map((x) => {
+    x.replace('-', '');
+  });
+  console.log(clean);
+}
