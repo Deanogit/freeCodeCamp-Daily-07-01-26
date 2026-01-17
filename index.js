@@ -14,16 +14,53 @@
 
 // Note: The console may not display HTML tags in strings when logging messages. Check the browser console to see logs with tags included.
 
+// function parseUnorderedList(markdown) {
+//   console.log(markdown);
+//   // return markdown;
+//   // split markdown by "\n" into array
+//   const split = markdown.split('\n');
+//   console.log(split);
+
+//   // clean item
+//   const clean = split.map((x) => {
+//     x.replace('-', '');
+//   });
+//   console.log(clean);
+// }
+
+// function parseUnorderedList(markdown) {
+//   console.log(markdown);
+//   // return markdown;
+//   // split markdown by "\n" into array
+//   const split = markdown.split('\n');
+//   console.log(split);
+
+//   // clean items
+//   const clean = split.map((x) => {
+//     let str = x.replace(/\-/g, '');
+//     return str.trim();
+//   });
+
+//   // result arr
+//   const result = [];
+//   for (let i = 0; i < clean.length; i++) {
+//     result.push(`<li>${clean[i]}</li>`);
+//   }
+//   //console.log(clean)
+//   console.log(result);
+//   return `<ul>${result.toString()}</ul>`;
+// }
+
 function parseUnorderedList(markdown) {
   console.log(markdown);
-  // return markdown;
-  // split markdown by "\n" into array
-  const split = markdown.split('\n');
-  console.log(split);
-
-  // clean item
-  const clean = split.map((x) => {
-    x.replace('-', '');
+  const lines = markdown.split('\n');
+  console.log(lines);
+  const clean = lines.map((x) => {
+    let str = x.replace('- ', '').trim();
+    return `<li>${str}</li>`;
   });
-  console.log(clean);
+  console.log(clean.join(''));
+  const result = clean.join('');
+
+  return `<ul>${result}</ul>`;
 }
